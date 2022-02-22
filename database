@@ -1,0 +1,24 @@
+create database ThiThucHanh collate utf8_general_ci;
+use ThiThucHanh;
+
+create table categories(
+                           id int auto_increment primary key ,
+                           name varchar(100)
+);
+
+create table products(
+                         id int auto_increment primary key ,
+                         name varchar(100),
+                         category_id int,
+                         price float,
+                         quantity int,
+                         date date,
+                         description varchar(500),
+                         foreign key (category_id) references categories(id)
+);
+
+insert into categories(name) values ('Điện Thoại'),('Điều Hòa'), ('Tủ Lạnh');
+
+insert into products(name, category_id, price, quantity, date, description)
+values ('galaxy S21',1,30000000,20,'2022-1-22','Siêu phẩm của sam sung');
+
